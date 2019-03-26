@@ -108,10 +108,11 @@ class ArcPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     canvas.save();
-    canvas
-      ..translate(size.width/2  + size.width /2 /sin(degToRad(45)),
-          size.height * cos(45));
-    canvas.rotate(degToRad(135));
+//    canvas
+//      ..translate(size.width/2  + size.width /2 /sin(degToRad(45)),
+//          size.height * cos(45));
+//    canvas.rotate(degToRad(135));
+    translateAndRotateCanvas(canvas,size,135);
     //绘制底部圆环
     var bigPainter = Paint()
       ..strokeWidth = strokeWidth
@@ -157,6 +158,25 @@ class ArcPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
+  }
+
+  void translateAndRotateCanvas(Canvas canvas,Size size,double degAngel){
+  // 计算画布中心轨迹圆半径
+    double r = sqrt(pow(size.width, 2) + pow(size.height, 2));
+  // 计算画布中心点初始弧度
+    double startAngle = atan(size.height / size.width);
+  // 计算画布初始中心点坐标
+    Point p0 = Point(r * cos(startAngle), r * sin(startAngle));
+  // 需要旋转的弧度
+    double xAngle=degToRad(135);
+  // 计算旋转后的画布中心点坐标
+    Point px = Point(
+        r * cos(xAngle + startAngle), r * sin(xAngle + startAngle));
+  // 先平移画布
+    canvas.translate((p0.x - px.x) / 2, (p0.y - px.y) / 2);
+  // 后旋转
+    canvas.rotate(xAngle);
+
   }
 }
 
