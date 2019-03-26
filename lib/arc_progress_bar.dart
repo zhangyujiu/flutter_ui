@@ -168,7 +168,7 @@ class ArcPainter extends CustomPainter {
   // 计算画布初始中心点坐标
     Point p0 = Point(r * cos(startAngle), r * sin(startAngle));
   // 需要旋转的弧度
-    double xAngle=degToRad(135);
+    double xAngle=degToRad(degAngel);
   // 计算旋转后的画布中心点坐标
     Point px = Point(
         r * cos(xAngle + startAngle), r * sin(xAngle + startAngle));
