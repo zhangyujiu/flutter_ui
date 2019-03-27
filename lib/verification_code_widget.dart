@@ -11,6 +11,8 @@ num degToRad(num deg) => deg * (pi / 180.0);
 
 num radToDeg(num rad) => rad * (180.0 / pi);
 
+//https://github.com/yumi0629/FlutterUI/tree/master/lib/verificationcode
+
 class VerificationCodeInput extends StatefulWidget {
   final double letterSpace;
   final double textSize;
