@@ -13,7 +13,7 @@ class ArcProgressBar extends StatefulWidget {
   double radius;
   double maxProgress;
   double initProgress;
-  double value;
+  double value = 0.0;
 
   Color ringColor;
   Color progressColor;
@@ -46,8 +46,9 @@ class _ArcProgressBarState extends State<ArcProgressBar>
   void initState() {
     super.initState();
     _animationController = AnimationController(
+        lowerBound: 0,
         upperBound: widget.maxProgress,
-        duration: Duration(seconds: 2),
+        duration: Duration(milliseconds: 800),
         vsync: this)
       ..addListener(() {
         var value = _animationController.value;
@@ -59,11 +60,11 @@ class _ArcProgressBarState extends State<ArcProgressBar>
     widget.controller.listener.addListener(() {
       double value = widget.controller.listener.value;
       value = value >= widget.maxProgress ? widget.maxProgress : value;
-      _animationController.value = value;
+      _animationController.value = widget.value;
+      _animationController.animateTo(value);
       widget.value = value;
     });
     widget.controller.changeProgress(widget.initProgress);
-    widget.value = widget.initProgress;
   }
 
   @override

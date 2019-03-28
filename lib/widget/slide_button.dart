@@ -33,7 +33,6 @@ class SlideButtonState extends State<SlideButton>
     with TickerProviderStateMixin {
   double translateX = 0;
   double maxDragDistance;
-  bool isOpen = false;
   final Map<Type, GestureRecognizerFactory> gestures =
       <Type, GestureRecognizerFactory>{};
 

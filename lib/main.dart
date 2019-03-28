@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/slide_button.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_ui/arc_progress_bar_page.dart';
+import 'package:flutter_ui/slide_button_page.dart';
+import 'package:flutter_ui/widget/float_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,74 +14,40 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MainPageState();
+  }
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           title: Text("Flutter UI"),
         ),
         body: ListView(
-          children: getSlides(),
-        ),
-      ),
-    );
+          children: <Widget>[
+            getItem(context, "SlideButton", SlideButtonPage()),
+            getItem(context, "ArcProgress", ArcProgressBarPage())
+          ],
+        ));
   }
 
-  List<SlideButton> list;
-
-  List<SlideButton> getSlides() {
-    list = List<SlideButton>();
-    for (var i = 0; i < 10; i++) {
-      var key = GlobalKey<SlideButtonState>();
-      var slide = SlideButton(
-        key: key,
-        singleButtonWidth: 80,
-        onSlideStarted: (){
-          list.forEach((slide){
-            if(slide.key!=key){
-              slide.key.currentState?.close();
-            }
-          });
-        },
-        child: Container(
-          height: 60,
-          color: Colors.white,
-          child: ListTile(
-            title: Text("测试测试测试测试测试测试测试测试"),
-          ),
-        ),
-        buttons: <Widget>[
-          buildAction(key, "置顶", Colors.grey[400], () {
-            Fluttertoast.showToast(msg: "置顶");
-            key.currentState.close();
-          }),
-          buildAction(key, "标为未读", Colors.amber, () {
-            Fluttertoast.showToast(msg: "标为未读");
-            key.currentState.close();
-          }),
-          buildAction(key, "删除", Colors.red, () {
-            Fluttertoast.showToast(msg: "删除");
-            key.currentState.close();
-          }),
-        ],
-      );
-      list.add(slide);
-    }
-    return list;
-  }
-
-  InkWell buildAction(GlobalKey<SlideButtonState> key, String text, Color color,
-      GestureTapCallback tap) {
-    return InkWell(
-      onTap: tap,
-      child: Container(
-        alignment: Alignment.center,
-        width: 80,
-        height: 60,
-        color: color,
-        child: Text(text,
-            style: TextStyle(
-              color: Colors.white,
-            )),
-      ),
+  ListTile getItem(BuildContext context, String title, Widget widget) {
+    return ListTile(
+      title: Text(title),
+      onTap: () {
+        Navigator.push(
+            context, CupertinoPageRoute(builder: (context) => widget));
+      },
     );
   }
 }
