@@ -15,9 +15,6 @@ class _SlideIndicatorPageState extends State<SlideIndicatorPage> {
   void initState() {
     super.initState();
     _controller = PageController(initialPage: 0);
-    _controller.addListener((){
-
-    });
   }
 
   @override

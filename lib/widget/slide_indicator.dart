@@ -80,13 +80,11 @@ class SlideIndicatorPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var buttonPointPainter = Paint()
       ..isAntiAlias = true
-//      ..strokeWidth = 10
       ..color = normalColor
       ..style = PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
     var slidePointPainter = Paint()
       ..isAntiAlias = true
-//      ..strokeWidth = 10
       ..color = selectColor
       ..style = PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
