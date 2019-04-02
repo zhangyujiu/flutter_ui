@@ -67,10 +67,10 @@ class SlideButtonState extends State<SlideButton>
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Row(
+        Positioned.fill(child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: widget.buttons,
-        ),
+        )),
         RawGestureDetector(
           gestures: gestures,
           child: Transform.translate(

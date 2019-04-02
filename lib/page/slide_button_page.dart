@@ -38,7 +38,6 @@ class _SlideButtonPageState extends State<SlideButtonPage> {
           });
         },
         child: Container(
-          height: 60,
           color: Colors.white,
           child: ListTile(
             title: Text("测试测试测试测试测试测试测试测试"),
@@ -72,7 +71,6 @@ class _SlideButtonPageState extends State<SlideButtonPage> {
       child: Container(
         alignment: Alignment.center,
         width: 80,
-        height: 60,
         color: color,
         child: Text(text,
             style: TextStyle(
