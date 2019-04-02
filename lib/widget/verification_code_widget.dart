@@ -7,10 +7,6 @@ import 'package:flutter_ui/utils/dash_path.dart' as dashPath;
 
 import 'dart:math';
 
-num degToRad(num deg) => deg * (pi / 180.0);
-
-num radToDeg(num rad) => rad * (180.0 / pi);
-
 //https://github.com/yumi0629/FlutterUI/tree/master/lib/verificationcode
 
 class VerificationCodeInput extends StatefulWidget {
@@ -115,6 +111,11 @@ class CustomRectInputBorder extends InputBorder {
 }
 
 class CustomHeartInputBorder extends InputBorder {
+
+  num degToRad(num deg) => deg * (pi / 180.0);
+
+  num radToDeg(num rad) => rad * (180.0 / pi);
+
   CustomHeartInputBorder({
     double textSize = 0.0,
     double letterSpace,

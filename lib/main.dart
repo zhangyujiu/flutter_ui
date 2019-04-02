@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ui/arc_progress_bar_page.dart';
-import 'package:flutter_ui/clear_textfield_page.dart';
-import 'package:flutter_ui/slide_button_page.dart';
-import 'package:flutter_ui/slide_indicator_page.dart';
+import 'package:flutter_ui/page/arc_progress_bar_page.dart';
+import 'package:flutter_ui/page/clear_textfield_page.dart';
+import 'package:flutter_ui/page/slide_button_page.dart';
+import 'package:flutter_ui/page/slide_indicator_page.dart';
 import 'package:flutter_ui/widget/clear_textfield_widget.dart';
 
 void main() {
