@@ -129,7 +129,7 @@ class SlideButtonState extends State<SlideButton>
 
   @override
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 }
