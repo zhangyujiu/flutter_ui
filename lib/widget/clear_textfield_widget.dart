@@ -8,6 +8,7 @@ class ClearTextField extends StatefulWidget {
   bool obscureText;
   TextInputType keyboardType;
   int maxLength;
+  Image image;
 
   ClearTextField(
       {this.textStyle,
@@ -15,7 +16,8 @@ class ClearTextField extends StatefulWidget {
       @required this.controller,
       this.obscureText = false,
       this.maxLength,
-      this.keyboardType = TextInputType.text});
+      this.keyboardType = TextInputType.text,
+      this.image});
 
   @override
   State<StatefulWidget> createState() {
@@ -43,6 +45,14 @@ class _ClearTextFieldState extends State<ClearTextField> {
         isShow = _focusNode.hasFocus && widget.controller.value.text.isNotEmpty;
       });
     });
+
+    if (widget.image == null) {
+      widget.image = Image.asset(
+        "assets/ic_edit_text_clear.png",
+        width: 20,
+        height: 20,
+      );
+    }
   }
 
   @override
@@ -54,7 +64,8 @@ class _ClearTextFieldState extends State<ClearTextField> {
             controller: widget.controller,
             style: widget.textStyle,
             inputFormatters: [
-              LengthLimitingTextInputFormatter(widget.maxLength==null?10000:widget.maxLength)
+              LengthLimitingTextInputFormatter(
+                  widget.maxLength == null ? 10000 : widget.maxLength)
             ],
             decoration: widget.decoration,
             keyboardType: widget.keyboardType,
@@ -66,11 +77,7 @@ class _ClearTextFieldState extends State<ClearTextField> {
           child: Offstage(
             offstage: !isShow,
             child: GestureDetector(
-              child: Image.asset(
-                "assets/ic_edit_text_clear.png",
-                width: 20,
-                height: 20,
-              ),
+              child: widget.image,
               onTap: () {
                 widget.controller.text = "";
               },

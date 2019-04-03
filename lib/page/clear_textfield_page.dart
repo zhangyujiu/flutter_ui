@@ -33,6 +33,11 @@ class _ClearTextFieldPageState extends State<ClearTextFieldPage> {
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(4.0)),
               child: ClearTextField(
+                image: Image.asset(
+                  "assets/ic_edit_text_clear.png",
+                  width: 20,
+                  height: 20,
+                ),
                 controller: controller,
                 textStyle: TextStyle(color: Colors.black87, fontSize: 14),
                 decoration: InputDecoration(
@@ -48,6 +53,11 @@ class _ClearTextFieldPageState extends State<ClearTextFieldPage> {
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(4.0)),
               child: ClearTextField(
+                image: Image.asset(
+                  "assets/ic_edit_text_clear.png",
+                  width: 20,
+                  height: 20,
+                ),
                 controller: controller1,
                 obscureText: true,
                 textStyle: TextStyle(color: Colors.black87, fontSize: 14),
