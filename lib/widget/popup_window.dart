@@ -62,6 +62,7 @@ class _PopupWindowState extends State<PopupWindow> {
         case PopDirection.top:
           left = localToGlobal.dx + size.width / 2 - buttonSize.width / 2;
           top = localToGlobal.dy - buttonSize.height - widget.offset;
+          fixPosition(buttonSize);
           break;
         case PopDirection.right:
           left = localToGlobal.dx + size.width + widget.offset;
@@ -70,10 +71,20 @@ class _PopupWindowState extends State<PopupWindow> {
         case PopDirection.bottom:
           left = localToGlobal.dx + size.width / 2 - buttonSize.width / 2;
           top = localToGlobal.dy + size.height + widget.offset;
+          fixPosition(buttonSize);
           break;
       }
       setState(() {});
     });
+  }
+
+  void fixPosition(Size buttonSize) {
+    if (left < 0) {
+      left = 0;
+    }
+    if (left + buttonSize.width >= MediaQuery.of(context).size.width) {
+      left = MediaQuery.of(context).size.width - buttonSize.width;
+    }
   }
 
   @override

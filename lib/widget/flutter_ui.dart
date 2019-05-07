@@ -4,3 +4,4 @@ export 'float_widget.dart';
 export 'slide_button.dart';
 export 'slide_indicator.dart';
 export 'verification_code_widget.dart';
+export 'popup_window.dart';

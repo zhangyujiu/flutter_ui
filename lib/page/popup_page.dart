@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/widget/popup_window.dart';
+import 'package:flutter_ui/widget/flutter_ui.dart';
 
 class PopupPage extends StatefulWidget {
   @override
@@ -111,7 +111,7 @@ class _PopupPageState extends State<PopupPage> {
                 child: FlatButton(
                     onPressed: () {
                       PopupWindow.showPopWindow(context, "", popCustomKey,
-                          PopDirection.right, buildWidget(), 5);
+                          PopDirection.top, buildWidget(), 5);
                     },
                     color: Colors.amberAccent,
                     child: Text("Custom",style: TextStyle(color: Colors.white),)),
@@ -130,7 +130,7 @@ class _PopupPageState extends State<PopupPage> {
           color: Colors.red,
           borderRadius: BorderRadius.all(Radius.circular(6))),
       child: Column(
-        children: <Widget>[Text("Custom"), Text("Custom"), Text("Custom")],
+        children: <Widget>[Text("CustomCustomCustomCustomCustom\nCustom"), Text("Custom"), Text("Custom")],
       ),
     );
   }
