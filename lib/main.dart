@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ui/page/arc_progress_bar_page.dart';
 import 'package:flutter_ui/page/clear_textfield_page.dart';
+import 'package:flutter_ui/page/popup_page.dart';
 import 'package:flutter_ui/page/slide_button_page.dart';
 import 'package:flutter_ui/page/slide_indicator_page.dart';
-import 'package:flutter_ui/widget/clear_textfield_widget.dart';
+import 'package:flutter_ui/widget/popup_window.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,6 +41,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +55,7 @@ class _MainPageState extends State<MainPage> {
             getItem(context, "进度条", ArcProgressBarPage()),
             getItem(context, "PageView指示器", SlideIndicatorPage()),
             getItem(context, "ClearTextField", ClearTextFieldPage()),
-
+            getItem(context, "PopupPage", PopupPage()),
           ],
         ));
   }

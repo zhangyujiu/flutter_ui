@@ -67,7 +67,8 @@ class SlideButtonState extends State<SlideButton>
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Positioned.fill(child: Row(
+        Positioned.fill(
+            child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: widget.buttons,
         )),
