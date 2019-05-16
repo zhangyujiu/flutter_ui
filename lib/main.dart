@@ -8,7 +8,6 @@ import 'package:flutter_ui/page/clear_textfield_page.dart';
 import 'package:flutter_ui/page/popup_page.dart';
 import 'package:flutter_ui/page/slide_button_page.dart';
 import 'package:flutter_ui/page/slide_indicator_page.dart';
-import 'package:flutter_ui/widget/popup_window.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,6 +41,14 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  @override
+  void initState() {
+    super.initState();
+    //在 initState 方法中获取 BuildContext
+    Future.delayed(Duration(seconds: 0),(){
+      print(MediaQuery.of(context).size);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
