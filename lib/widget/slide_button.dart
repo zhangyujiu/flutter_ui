@@ -65,13 +65,13 @@ class SlideButtonState extends State<SlideButton>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return WillPopScope(child: Stack(
       children: <Widget>[
         Positioned.fill(
             child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: widget.buttons,
-        )),
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: widget.buttons,
+            )),
         RawGestureDetector(
           gestures: gestures,
           child: Transform.translate(
@@ -87,7 +87,13 @@ class SlideButtonState extends State<SlideButton>
           ),
         )
       ],
-    );
+    ), onWillPop: ()async{
+      if (translateX != 0){
+        close();
+        return false;
+      }
+      return true;
+    });
   }
 
   void onHorizontalDragDown(DragDownDetails details) {
